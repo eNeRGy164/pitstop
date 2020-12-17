@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Pitstop.LivingDocumentation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.7.82" />
+    <PackageReference Include="LivingDocumentation.Json" Version="0.3.7" />
+    <PackageReference Include="LivingDocumentation.RenderExtensions" Version="0.3.7" />
+    <PackageReference Include="LivingDocumentation.UML" Version="0.3.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(BuildingInsideVisualStudio)' == 'true' And !Exists('$(TargetDir)pitstop.analyzed.json')">
+    <Exec Command="dotnet tool update --global LivingDocumentation.Analyzer --version 0.3.7&#xD;&#xA;livingdoc-analyze --output &quot;$(TargetDir)pitstop.analyzed.json&quot; --solution &quot;$(SolutionDir)pitstop.sln&quot;&#xD;&#xA;" />
+  </Target>
+
+  <Target Name="CleanGeneratedFile" AfterTargets="Clean">
+    <Delete Files="$(TargetDir)pitstop.analyzed.json" ContinueOnError="true" />
+  </Target>
+</Project>
