@@ -108,7 +108,7 @@ namespace Pitstop.NotificationService
         {
             Log.Information("Remove finished Maintenance Job: {Id}", mjf.JobId);
 
-            await _repo.RemoveMaintenanceJobsAsync(new string[] { mjf.JobId.ToString() });
+            await _repo.RemoveMaintenanceJobsAsync(new string[] { mjf.JobId.ToString() }.AsEnumerable());
         }
 
         private async Task HandleAsync(DayHasPassed dhp)
