@@ -1,0 +1,22 @@
+[[section-concepts]]
+== Concepts
+
+
+
+
+
+=== Aggregates
+
+==== Workshop Planning
+Some explaination about this aggregates.
+
+include::../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=aggregate-workshopplanning]
+
+
+=== Commands
+
+include::../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=commands, leveloffset=+2]
+
+=== _<Concept n>_
+
+_<explanation>_

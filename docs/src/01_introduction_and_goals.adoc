@@ -1,0 +1,36 @@
+[[section-introduction-and-goals]]
+== Introduction and Goals
+A sample application based on a Garage Management System for Pitstop - a fictitious garage / car repair shop. The primary goal of this sample is to demonstrate several software-architecture concepts like:  
+
+* Microservices  
+* CQRS  
+* Event Sourcing  
+* Domain Driven Design (DDD)  
+* Eventual Consistency  
+
+and how to use container-technologies like:
+
+* Docker
+* Kubernetes
+* Istio (service-mesh)
+* Linkerd (service-mesh)
+
+
+=== Requirements Overview
+
+
+
+=== Quality Goals
+
+
+
+=== Stakeholders
+
+
+
+[options="header",cols="1,2,2"]
+|===
+|Role/Name|Contact|Expectations
+| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
+| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|===

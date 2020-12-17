@@ -1,0 +1,13 @@
+[[section-system-scope-and-context]]
+== System Scope and Context
+
+
+
+
+
+=== Business Context
+
+==== Produced business facts
+
+include::../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=events, leveloffset=+3]
+
