@@ -9,5 +9,5 @@
 
 ==== Produced business facts
 
-include::../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=events, leveloffset=+3]
+include::../../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=events, leveloffset=+3]
 

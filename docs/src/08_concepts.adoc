@@ -10,12 +10,12 @@
 ==== Workshop Planning
 Some explaination about this aggregates.
 
-include::../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=aggregate-workshopplanning]
+include::../../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=aggregate-workshopplanning]
 
 
 === Commands
 
-include::../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=commands, leveloffset=+2]
+include::../../src/LivingDocumentation/bin/Debug/netcoreapp3.1/docs/pitstop.generated.adoc[tag=commands, leveloffset=+2]
 
 === _<Concept n>_
 
