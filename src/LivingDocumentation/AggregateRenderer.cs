@@ -1,5 +1,6 @@
 using LivingDocumentation;
-using System.Collections.Generic;
+using PlantUml.Builder;
+using PlantUml.Builder.ClassDiagrams;
 using System.Linq;
 using System.Text;
 
@@ -16,14 +17,14 @@ namespace Pitstop.LivingDocumentation
             foreach (var aggregate in aggregates)
             {
                 AsciiDocHelper.BeginSection(stringBuilder, $"aggregate-{aggregate.Name.ToLowerInvariant()}");
-
                 stringBuilder.AppendLine($".Aggregate - {aggregate.Name.ToSentenceCase()}");
                 stringBuilder.AppendLine($"[plantuml]");
                 stringBuilder.AppendLine("....");
-                stringBuilder.AppendLine("@startuml");
-                stringBuilder.AppendLine("skinparam MinClassWidth 160");
+
+                stringBuilder.UmlDiagramStart();
+                stringBuilder.SkinParameter(SkinParameter.MinClassWidth, "160");
                 stringBuilder.AppendLine("scale max 4096 height");
-                stringBuilder.AppendLine($"namespace {aggregate.Name} <<aggregate>> {{");
+                stringBuilder.NamespaceStart(aggregate.Name, stereotype: "aggregate");
 
                 var idType = Program.Types.FirstOrDefault(aggregate.GetAggregateRootId());
                 var idBuilder = RenderClass(idType);
@@ -33,10 +34,10 @@ namespace Pitstop.LivingDocumentation
                 var rootBuilder = RenderClass(aggregate);
                 stringBuilder.Append(rootBuilder);
 
-                stringBuilder.AppendLine("}");
-                stringBuilder.AppendLine("@enduml");
-                stringBuilder.AppendLine("....");
+                stringBuilder.NamespaceEnd();
+                stringBuilder.UmlDiagramEnd();
 
+                stringBuilder.AppendLine("....");
                 AsciiDocHelper.EndSection(stringBuilder, $"aggregate-{aggregate.Name.ToLowerInvariant()}");
             }
 

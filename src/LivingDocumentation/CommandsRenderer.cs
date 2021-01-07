@@ -44,26 +44,6 @@ namespace Pitstop.LivingDocumentation
                     stringBuilder.AppendLine();
                 }
 
-                //if (groupedType.Any(t => !t.HasReceiverInSameNamespace()))
-                //{
-                //    stringBuilder.AppendLine(".Command sent by");
-                //    foreach (var t in groupedType.Where(t => !t.HasReceiverInSameNamespace()))
-                //    {
-                //        stringBuilder.AppendLine($"* {t.Namespace.Split('.').Reverse().Skip(1).First().SplitCamelCase()}");
-                //    }
-                //    stringBuilder.AppendLine();
-                //}
-
-                //if (groupedType.Any(t => t.HasReceiverInSameNamespace()))
-                //{
-                //    stringBuilder.AppendLine(".Command handled by");
-                //    foreach (var t in groupedType.Where(t => t.HasReceiverInSameNamespace()))
-                //    {
-                //        stringBuilder.AppendLine($"* {t.Namespace.Split('.').Skip(1).First().SplitCamelCase()}");
-                //    }
-                //    stringBuilder.AppendLine();
-                //}
-
                 if (groupedType.SelectMany(t => t.Fields).Any())
                 {
                     stringBuilder.AppendLine("[caption=]");
@@ -137,7 +117,6 @@ namespace Pitstop.LivingDocumentation
             stringBuilder.AppendLine("box \"Services\" #Ivory");
             foreach (var service in services)
             {
-                //stringBuilder.AppendLine($"participant \"{service.AsServiceDisplayName()}\" as {service}");
                 if (service.EndsWith("Entity"))
                 {
                     stringBuilder.AppendLine($"entity \"{service.Split('_').Skip(1).First()}\" as {service}");

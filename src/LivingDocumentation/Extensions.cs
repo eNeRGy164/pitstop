@@ -12,9 +12,7 @@ namespace Pitstop.LivingDocumentation
     {
         public static void RenderProperty(this PropertyDescription property, StringBuilder stringBuilder)
         {
-            if (property.IsStatic()) stringBuilder.Append("{static} ");
-            stringBuilder.Append(property.ToUmlVisibility());
-            stringBuilder.AppendLine($"{property.Name}: {property.Type.ForDiagram()}");
+            stringBuilder.ClassMember($"{property.Name}: {property.Type.ForDiagram()}", property.IsStatic(), visibility: property.ToUmlVisibility());
         }
 
         public static void RenderStereoType(this TypeDescription type, StringBuilder stringBuilder)
@@ -29,12 +27,7 @@ namespace Pitstop.LivingDocumentation
 
         public static void RenderMethod(this MethodDescription method, StringBuilder stringBuilder)
         {
-            if (method.IsStatic()) stringBuilder.Append("{static} ");
-            stringBuilder.Append(method.ToUmlVisibility());
-            stringBuilder.Append(method.Name);
-            stringBuilder.Append('(');
-            stringBuilder.AppendJoin(", ", method.Parameters.Select(s => s.Name));
-            stringBuilder.AppendLine(")");
+            stringBuilder.ClassMember($"{method.Name}({method.Parameters.Select(p => p.Name).Aggregate("", (s, a) => a + "," + s, s => s.Trim(','))})", method.IsStatic(), visibility: method.ToUmlVisibility());
         }
 
         public static TypeDescription ToTypeDescription(this string type)
